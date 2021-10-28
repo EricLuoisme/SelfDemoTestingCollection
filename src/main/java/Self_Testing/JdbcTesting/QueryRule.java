@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * 为实现
  */
 public final class QueryRule implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    // 定义排列组合的内容
     public static final int ASC_ORDER = 101;
     public static final int DESC_ORDER = 102;
     public static final int LIKE = 1;
@@ -226,6 +228,9 @@ public final class QueryRule implements Serializable {
         return this.propertyName;
     }
 
+    /**
+     * 内部类
+     */
     protected class Rule implements Serializable {
         private static final long serialVersionUID = 1L;
         private int type;	//规则的类型
