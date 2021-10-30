@@ -1,7 +1,8 @@
-package Self_Testing.JdbcTesting;
+package com.example.demo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "Department")
+// 使用lombok实现链式constructor
+@Accessors(chain = true)
 public class Department implements Serializable {
 
     @Id

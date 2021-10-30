@@ -1,6 +1,5 @@
-package Self_Testing.ProxySourceSimulation;
+package Self_Testing.AopTestings.ProxySourceSimulation;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;

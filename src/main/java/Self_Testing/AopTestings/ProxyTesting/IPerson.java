@@ -1,4 +1,4 @@
-package Self_Testing.ProxyTesting;
+package Self_Testing.AopTestings.ProxyTesting;
 
 public interface IPerson {
 

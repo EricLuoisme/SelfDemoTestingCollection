@@ -1,6 +1,6 @@
-package Self_Testing.ProxySourceSimulation;
+package Self_Testing.AopTestings.ProxySourceSimulation;
 
-import Self_Testing.ProxyTesting.IPerson;
+import Self_Testing.AopTestings.ProxyTesting.IPerson;
 
 import java.lang.reflect.Method;
 

@@ -1,4 +1,4 @@
-package Self_Testing.ProxyTesting;
+package Self_Testing.AopTestings.ProxyTesting;
 
 // jdkProxy版
 public class Tom implements IPerson{

@@ -1,4 +1,4 @@
-package Self_Testing.ProxyTesting;
+package Self_Testing.AopTestings.ProxyTesting;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

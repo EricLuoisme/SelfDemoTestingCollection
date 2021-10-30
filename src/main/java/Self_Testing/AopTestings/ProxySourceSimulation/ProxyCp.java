@@ -1,4 +1,4 @@
-package Self_Testing.ProxySourceSimulation;
+package Self_Testing.AopTestings.ProxySourceSimulation;
 
 
 import javax.tools.JavaCompiler;
@@ -53,8 +53,8 @@ public class ProxyCp {
 
     private static String generateSrc(Class<?>[] interfaces) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Self_Testing.ProxySourceSimulation;" + ln)
-                .append("Self_Testing.ProxyTesting.IPerson;" + ln)
+        sb.append("Self_Testing.AopTestings.ProxySourceSimulation;" + ln)
+                .append("Self_Testing.AopTestings.ProxyTesting.IPerson;" + ln)
                 .append("import java.lang.reflect.*;" + ln)
                 .append("public final class $Proxy0 implements " + interfaces[0].getName() + "{" + ln)
                 .append("InvocationHandlerCp h;" + ln)
