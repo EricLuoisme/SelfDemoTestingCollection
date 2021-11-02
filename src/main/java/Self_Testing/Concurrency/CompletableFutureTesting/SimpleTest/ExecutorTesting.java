@@ -55,23 +55,23 @@ public class ExecutorTesting {
             executorService.execute(runnableTask);
 
 //
-//            List<Future<String>> futures = executorService.invokeAll(callableList);
+            List<Future<String>> futures = executorService.invokeAll(callableList);
 //            TimeUnit.MILLISECONDS.sleep(1000);
 //            List<Runnable> remainingTasks = executorService.shutdownNow();
 //            for (Runnable remainingTask : remainingTasks) {
 //                System.out.println(remainingTask.toString());
 //            }
 
-//            futures.forEach(x -> {
-//                try {
-//                    String s = x.get();
-//                    System.out.println(s);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } catch (ExecutionException e) {
-//                    e.printStackTrace();
-//                }
-//            });
+            futures.forEach(x -> {
+                try {
+                    String s = x.get();
+                    System.out.println(s);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
