@@ -12,7 +12,7 @@ public class ExecutorTesting {
         Runnable runnableTask = () -> {
             try {
                 System.out.println("Runnable Task Run");
-                TimeUnit.MILLISECONDS.sleep(300);
+                TimeUnit.MILLISECONDS.sleep(3000);
                 System.out.println("Runnable Task Finished");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -51,12 +51,16 @@ public class ExecutorTesting {
         // 声明线程池
         try {
             ExecutorService executorService = Executors.newFixedThreadPool(4);
-            List<Future<String>> futures = executorService.invokeAll(callableList);
-            TimeUnit.MILLISECONDS.sleep(1000);
-            List<Runnable> remainingTasks = executorService.shutdownNow();
-            for (Runnable remainingTask : remainingTasks) {
-                System.out.println(remainingTask.toString());
-            }
+
+            executorService.execute(runnableTask);
+
+//
+//            List<Future<String>> futures = executorService.invokeAll(callableList);
+//            TimeUnit.MILLISECONDS.sleep(1000);
+//            List<Runnable> remainingTasks = executorService.shutdownNow();
+//            for (Runnable remainingTask : remainingTasks) {
+//                System.out.println(remainingTask.toString());
+//            }
 
 //            futures.forEach(x -> {
 //                try {
