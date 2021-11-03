@@ -43,7 +43,8 @@ public class CountDownLatchTest {
 
         try {
             // 当前线程阻塞, 直到countDownLatch为0, 或者是到时间了
-            latch.await(3, TimeUnit.SECONDS);
+            boolean await = latch.await(3, TimeUnit.SECONDS);
+            System.out.println(await);
             // 阻塞被唤醒
             System.out.println(a.get());
             System.out.println(b.get());
