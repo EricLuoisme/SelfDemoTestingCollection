@@ -16,9 +16,9 @@ public class ReentrantLockTest {
         ExecutorService threadPool = Executors.newFixedThreadPool(2);
 
         Supplier<String> add = () -> {
+            boolean b = sharedStuff.reentrantLock.tryLock();
             try {
                 // 获取锁
-                boolean b = sharedStuff.reentrantLock.tryLock();
                 if (b) {
                     System.out.println("add获取到锁");
                     Integer counts = sharedStuff.getCounts();
@@ -38,9 +38,9 @@ public class ReentrantLockTest {
         };
 
         Supplier<String> minus = () -> {
+            // 获取锁
+            boolean b = sharedStuff.reentrantLock.tryLock();
             try {
-                // 获取锁
-                boolean b = sharedStuff.reentrantLock.tryLock();
                 if (b) {
                     System.out.println("minus获取到锁");
                     Integer counts = sharedStuff.getCounts();
