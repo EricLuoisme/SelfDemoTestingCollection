@@ -52,7 +52,5 @@ public class CountDownLatchTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 }
