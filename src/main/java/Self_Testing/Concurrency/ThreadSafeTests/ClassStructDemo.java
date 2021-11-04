@@ -9,7 +9,9 @@ public class ClassStructDemo {
     public static void main(String[] args) {
         ClassStructDemo demo = new ClassStructDemo();
         System.out.println(ClassLayout.parseInstance(demo).toPrintable());
-        System.out.println();
-        System.out.println(ClassLayout.parseClass(ClassStructDemo.class).toPrintable());
+        synchronized (demo) {
+            System.out.println(ClassLayout.parseInstance(demo).toPrintable());
+        }
+        System.out.println(ClassLayout.parseInstance(demo).toPrintable());
     }
 }
