@@ -76,26 +76,32 @@ public class TransferTest {
                     accountB.setBalance(accountB.getBalance().add(money));
                     // DB落库, 或者至少记录内容
                     log.info(trxId + " From " + accountA + " transfer " + money + " to " + accountB + " finished");
+                    accountA.lock.unlock();
+                    accountB.lock.unlock();
                     // 删除accountB不允许再转出的标记在Redis
                     return true;
                 } else {
                     log.warn(trxId + " From " + accountA + " not enough money");
                     // 设置accountA不允许再转出的标记到Redis
+                    accountA.lock.unlock();
+                    accountB.lock.unlock();
                     return false;
                 }
             }
             // can not get both lock
             // 落库该问题, 或者发送到MQ重试?
             log.error("");
+            if (getALock) {
+                accountA.lock.unlock();
+            }
+            if (getBLock) {
+                accountB.lock.unlock();
+            }
             return false;
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            accountA.lock.unlock();
-            accountB.lock.unlock();
         }
-
         return false;
     }
 
