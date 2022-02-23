@@ -1,9 +1,6 @@
 package Self_Testing.PureJava;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.DelayQueue;
 
 public class DelayQueueTest {
@@ -14,7 +11,10 @@ public class DelayQueueTest {
         DelayQueue<DelayObject> theDelayQueue = new DelayQueue<>();
         // PriorityQueue
         Queue<Integer> priorityQueue = new PriorityQueue<>((a, b) -> { return a.compareTo(b); });
-
+        // List
+        List<String> list = new LinkedList<>();
+        // Map
+        Map<String, Integer> map = new HashMap<>();
     }
 
 }
