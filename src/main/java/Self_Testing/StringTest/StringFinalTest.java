@@ -1,6 +1,6 @@
 package Self_Testing.StringTest;
 
-public class SpringFinalTest {
+public class StringFinalTest {
 
     String a = "abc";
 
@@ -22,7 +22,7 @@ public class SpringFinalTest {
 
 
     public static void main(String[] args) {
-        SpringFinalTest ins = new SpringFinalTest();
+        StringFinalTest ins = new StringFinalTest();
         System.out.println(ins.a);
         ins.test();
         System.out.println(ins.a);
