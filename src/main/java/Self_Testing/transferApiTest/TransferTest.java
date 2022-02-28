@@ -26,6 +26,8 @@ public class TransferTest {
     @Transactional
     public boolean mainTransfer(String trxId, Account accountA, Account accountB, Account middleAcc, BigDecimal money) {
 
+        // 1. 应该先向DB进行查询, 是否已经有该trxId的记录, 幂等请求, 防止重复
+
         log.info(trxId + " From " + accountA + " transfer " + money + " to " + accountB + " through " + middleAcc + " started");
 
         // Transfer from A to Mid
@@ -60,8 +62,8 @@ public class TransferTest {
      */
     private boolean transfer(String trxId, Account accountA, Account accountB, BigDecimal money) {
 
-        boolean getALock;
-        boolean getBLock;
+        boolean getALock = false;
+        boolean getBLock = false;
 
         try {
             getALock = accountA.lock.tryLock(1, TimeUnit.MINUTES);
@@ -91,16 +93,18 @@ public class TransferTest {
             // can not get both lock
             // 落库该问题, 或者发送到MQ重试?
             log.error("");
+            return false;
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            // 释放拿到的锁, 避免其中一个抛出异常进到catch, 另一个没有释放
             if (getALock) {
                 accountA.lock.unlock();
             }
             if (getBLock) {
                 accountB.lock.unlock();
             }
-            return false;
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
         return false;
     }
