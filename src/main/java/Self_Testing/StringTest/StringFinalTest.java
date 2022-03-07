@@ -28,6 +28,10 @@ public class StringFinalTest {
         System.out.println(ins.a);
         ins.test2(ins.a);
         System.out.println(ins.a);
+
+        ThreadLocal<String> local = ThreadLocal.withInitial(() -> "initial");
+        local.set("gccs");
+        local.get();
     }
 
 
