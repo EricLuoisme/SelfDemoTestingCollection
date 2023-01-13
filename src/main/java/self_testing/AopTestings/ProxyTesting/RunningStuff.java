@@ -20,10 +20,11 @@ public class RunningStuff {
         /**
          * cglib版代理
          */
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E:\\cglibTest");
+//        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E:\\cglibTest");
         CglibProxyForPerson cglibProxyForPerson = new CglibProxyForPerson();
         Jerry jerry = (Jerry) cglibProxyForPerson.getInstance(Jerry.class);
         jerry.answer();
+        jerry.hit("Tom");
 
 
     }

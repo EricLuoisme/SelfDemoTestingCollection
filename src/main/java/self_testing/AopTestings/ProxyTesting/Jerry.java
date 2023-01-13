@@ -9,8 +9,15 @@ package self_testing.AopTestings.ProxyTesting;
 //}
 
 //// cglib版
-public class Jerry{
+public class Jerry {
+
+    // non para non return
     public void answer() {
         System.out.println("This's Jerry");
+    }
+
+    // para + return
+    public String hit(String name) {
+        return "No " + name;
     }
 }
